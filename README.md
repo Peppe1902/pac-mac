@@ -10,7 +10,7 @@ The steps followed during the design are:
 - If the request is considered valid, it is forwarded to the DRAM; otherwise it is blocked and an error message is sent to the PS.
 
 ## System Architecture
-<img width="1568" height="750" alt="image" src="https://github.com/user-attachments/assets/b7dc9571-5ca9-4723-a5ad-616f36c0c108" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/b7dc9571-5ca9-4723-a5ad-616f36c0c108" />
 
 
 <img width="1081" height="958" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />

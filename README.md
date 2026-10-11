@@ -1,5 +1,4 @@
-# PAC-MAC
-PAC-MAC : Fine Grained Memory Access Control for Inter-VM Communication
+# PAC-MAC : Fine Grained Memory Access Control for Inter-VM Communication
 
 The purpose of this project is to implement a fine-grained hardware control of memory accesses in inter-VM VirtIO-based communications, to improve the isolation
 between virtualization domains. The project will include a first prototype on ZCU104 (Zynq UltraScale + MPSOC).

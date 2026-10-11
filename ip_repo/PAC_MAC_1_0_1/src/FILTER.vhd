@@ -140,13 +140,13 @@ end FILTER;
 architecture arch_imp of FILTER is
 
     
-    -- funzioni di utilità
+    -- utility function
     function calc_last_addr(
         start_addr : unsigned(31 downto 0);
         len        : std_logic_vector(7 downto 0);
         size       : std_logic_vector(2 downto 0)
     ) return unsigned is
-        variable burst_len  : unsigned(7 downto 0);  -- fino a 255 beat
+        variable burst_len  : unsigned(7 downto 0);  -- up to 255 beat
         variable beat_bytes : unsigned(31 downto 0);
         variable last_addr  : unsigned(31 downto 0);
     begin
@@ -160,7 +160,7 @@ architecture arch_imp of FILTER is
     
     begin
    
-    -- indirizzi finali burst
+    -- burst final addresses
     aw_last  <= calc_last_addr(unsigned(s_axi_awaddr(31 downto 0)), s_axi_awlen, s_axi_awsize);
     ar_last  <= calc_last_addr(unsigned(s_axi_araddr(31 downto 0)), s_axi_arlen, s_axi_arsize);
 
@@ -168,7 +168,7 @@ architecture arch_imp of FILTER is
     -- WRITE ADDRESS TRANSLATION
     -------------------------------------------------------------------
     m_axi_awaddr <= 
-        -- valido SOLO se sia start_addr che last_addr cadono nel range
+        -- valid only if start_addr and last_addr fall within the range
         x"00" & s_axi_awaddr(31 downto 0)
         when (unsigned(s_axi_awaddr(31 downto 0)) >= WADDR_LOW and unsigned(s_axi_awaddr(31 downto 0)) < WADDR_SUP and aw_last < WADDR_SUP)
         else
@@ -179,7 +179,7 @@ architecture arch_imp of FILTER is
     -- READ ADDRESS TRANSLATION
     -------------------------------------------------------------------
     m_axi_araddr <= 
-        -- valido SOLO se sia start_addr che last_addr cadono nel range
+        -- valid only if start_addr and last_addr fall within the range
         x"00" & s_axi_araddr(31 downto 0)
         when (unsigned(s_axi_araddr(31 downto 0)) >= RADDR_LOW and unsigned(s_axi_araddr(31 downto 0)) < RADDR_SUP and ar_last < RADDR_SUP)
         else

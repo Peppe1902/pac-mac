@@ -110,7 +110,7 @@ architecture arch_imp of SINK is
 	    s_axi_wready <= AXI_WREADY;
         
     
-        ----------------------------------------------------TRANSAZIONE SCRITTURA-------------------------------------------------
+        ----------------------------------------------------WRITE TRANSACTION-------------------------------------------------
         STATO_PROSSIMO_W : process(s_axi_aclk) 
         
             begin
@@ -137,18 +137,19 @@ architecture arch_imp of SINK is
                                 s_axi_bresp   <= (others => '0');
                                 s_axi_bid     <= (others => '0');
                     
-                                if s_axi_aresetn = '1' then --reset rilasciato
+                                if s_axi_aresetn = '1' then --ACTIVE-LOW RESET
                                        stato_corrente_w <= WADDR;
                                 else
                                        stato_corrente_w <= IDLE_W;
                                 end if;
                                    
                         
-                            when WADDR => --STATO INIZIALE (ATTENDO DI RICEVERE AWADDR)
+                            when WADDR => -- initial state (waiting for AWADDR)
+	
                                 AXI_AWREADY <= '1';
                                 AXI_WREADY <= '0';
                                 
-                                if s_axi_awvalid = '1' and AXI_AWREADY = '1' then --handshake AXI channel AW
+                                if s_axi_awvalid = '1' and AXI_AWREADY = '1' then --AXI handshake channel AW
                                     s_axi_awid_tmp <= s_axi_awid;
                                     stato_corrente_w <= CONSUME_BEATS_W;
                                 else 
@@ -156,23 +157,25 @@ architecture arch_imp of SINK is
                                 end if;
    
                             
-                             when CONSUME_BEATS_W => --STATO IN CI RIMANGO FINO A CHE WLAST NON RIVENTA 1
-                                AXI_WREADY <= '1'; --mantengo WREADY alto
-                                AXI_AWREADY <= '0'; --abbasso AWREADY 
+                             when CONSUME_BEATS_W => -- state where the FSM waits for WLAST to be asserted
+
+                                AXI_WREADY <= '1'; --WREADY asserted
+                                AXI_AWREADY <= '0'; --AWREADY deasserted
                                 if s_axi_wlast = '1' and s_axi_wvalid='1' then
                                     stato_corrente_w <= SEND_BRESP_W;
                                 elsif s_axi_wlast='0' and s_axi_wvalid='1' then
                                     stato_corrente_w <= CONSUME_BEATS_W;
                                 end if;
                                
-                            when SEND_BRESP_W => --STATO PER INVIARE UN MESSAGGIO DI ERRORE
+                            when SEND_BRESP_W => -- state defined to send an error message
+
                                 AXI_AWREADY <= '0';
                                 AXI_WREADY <= '0';
                                 AXI_BVALID <= '1';
                                 s_axi_bid <= s_axi_awid_tmp;
                                 s_axi_bresp <= "10";
                                 if s_axi_bready = '1' and AXI_BVALID = '1' then
-                                    AXI_BVALID <= '0';   -- abbasso BVALID solo dopo il handshake
+                                    AXI_BVALID <= '0';   --  BVALID deasserted only after handshake
                                     stato_corrente_w <= IDLE_W;
                                 else
                                     stato_corrente_w <= SEND_BRESP_W;
@@ -190,7 +193,7 @@ architecture arch_imp of SINK is
         
         
         
-        -------------------------------------------------------TRANSAZIONE LETTURA----------------------------------------------------------
+        -------------------------------------------------------READ TRANSACTION----------------------------------------------------------
         STATO_PROSSIMO_R : process(s_axi_aclk) 
         
             begin
@@ -228,7 +231,7 @@ architecture arch_imp of SINK is
                                 AXI_RLAST	    <=  '0';   
                                 AXI_RVALID   <=  '0';
                                                     
-                                if s_axi_aresetn = '1' then --reset rilasciato
+                                if s_axi_aresetn = '1' then --ACTIVE-LOW RESET
                                       stato_corrente_r <= RADDR;
                                 else
                                       stato_corrente_r <= IDLE_R;
@@ -246,16 +249,17 @@ architecture arch_imp of SINK is
                                 end if;
                                    
 
-                            when SEND_RRESP => --STATO PER INVIARE UN MESSAGGIO DI ERRORE
+                            when SEND_RRESP => --state defined to send an error message
                                 AXI_ARREADY <= '0';
                                 AXI_RVALID <= '1'; 
-                                s_axi_rid <= s_axi_arid_tmp;--RID : Serve a dire a quale richiesta di lettura corrisponde quel dato.
-                                --ARID : Serve a identificare una richiesta di lettura.
+                                s_axi_rid <= s_axi_arid_tmp; --RID : used to identify the read request associated with that data.
+                                --ARID : used to identify a read request
+
                                 s_axi_rresp <= "10";
                                 AXI_RLAST <= '1';
                                 s_axi_rdata <= (others => '0');
                                 
-                                if s_axi_rready = '1' and AXI_RVALID='1' and AXI_RLAST = '1' then  --se r_valid=1 r_ready=1 r_last=1 allora transazione lettura è finita
+                                if s_axi_rready = '1' and AXI_RVALID='1' and AXI_RLAST = '1' then  --if r_valid=1 r_ready=1 r_last=1 : read transaction terminated
                                     AXI_RVALID <= '0';
                                     stato_corrente_r <= IDLE_R;
                                 else

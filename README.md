@@ -16,4 +16,21 @@ The steps followed during the design are:
 ## Block Design
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
+## Jailhouse setup
 
+- Copy the `dma_lib` folder into `/jailhouse/inmates/lib`
+- Add `dma_utils.o` from `dma_lib` to the Makefile in `/jailhouse/inmates/lib/arm64`
+- Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`
+
+Once this is done, it will be possible to develop your own
+application that uses this library and that can then be loaded into
+a Jailhouse cell. 
+Before launching the Jailhouse compilation,
+execute the following steps so that the .bin files of the
+developed source codes are produced:
+• Develop your own inmate (e.g., dma transfer.c) in /jailhouse/demos/arm
+• Add in the Makefile located in /jailhouse/demos/arm64
+on the INMATES line the name of your file in .bin format
+(e.g., dma transfer.bin)
+• Add in the Makefile located in /jailhouse/demos/arm64 another line of the type:
+dma_transfer.y := ../arm/dma_transfer.o

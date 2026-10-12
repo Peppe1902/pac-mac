@@ -28,4 +28,4 @@ Before starting Jailhouse compilation, execute the following steps in order to p
 - Add the name of your `.bin` (e.g., `dma_transfer.bin`) to the `INMATES` line of Makefile located in `/jailhouse/demos/arm64` 
 - In the Makefile located in `/jailhouse/demos/arm64`, add another line of the form `dma_transfer.y := ../arm/dma_transfer.o`
 
-Once these steps are completed, launch the compilation and extract the image to be loaded to the microSD.
+Once these steps are completed, launch the compilation and extract the image that must be loaded to the microSD.

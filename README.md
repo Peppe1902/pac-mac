@@ -18,7 +18,7 @@ The steps followed during the design are:
 
 ## Jailhouse setup
 
-- Copy the `dma_lib` folder into `/jailhouse/inmates/lib`
+- Copy the `software/dma_lib` folder into `/jailhouse/inmates/lib`
 - Add `dma_utils.o` from `dma_lib` to the Makefile in `/jailhouse/inmates/lib/arm64`
 - Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`
 

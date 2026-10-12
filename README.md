@@ -13,8 +13,6 @@ The steps followed during the design are:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
-## Block Design
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
 ## Jailhouse setup
 
@@ -29,3 +27,9 @@ Before starting Jailhouse compilation, execute the following steps in order to p
 - In the Makefile located in `/jailhouse/demos/arm64`, add another line of the form `dma_transfer.y := ../arm/dma_transfer.o`
 
 Once these steps are completed, launch the compilation and extract the image that must be loaded to the microSD.
+
+
+## Block Design
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
+
+

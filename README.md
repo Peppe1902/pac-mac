@@ -23,7 +23,7 @@ The steps followed during the design are:
 - Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`
 
 Once this is done, you can develop your own application using this library and load it into a Jailhouse cell.
-Before ailhouse compilation, execute the following steps in order to produce the `.bin` files of the developed source.
+Before starting Jailhouse compilation, execute the following steps in order to produce the `.bin` files of the developed source:
 - Develop your own inmate (e.g., `dma_transfer.c`) in `/jailhouse/demos/arm`
 - Add the name of your `.bin` (e.g., `dma_transfer.bin`) to the `INMATES` line of Makefile located in `/jailhouse/demos/arm64` 
 - In the Makefile located in `/jailhouse/demos/arm64`, add another line of the form `dma_transfer.y := ../arm/dma_transfer.o`

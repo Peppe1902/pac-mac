@@ -18,9 +18,9 @@ The steps followed during the design are:
 
 ## Jailhouse setup
 
-- Copy the `software/dma_lib` folder into `/jailhouse/inmates/lib`
-- Add `dma_utils.o` from `dma_lib` to the Makefile in `/jailhouse/inmates/lib/arm64`
-- Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`
+- Copy the `software/dma_lib` folder into `/jailhouse/inmates/lib`.
+- Add `dma_utils.o` from `dma_lib` to the Makefile in `/jailhouse/inmates/lib/arm64`.
+- Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`.
 
 Once this is done, you can develop your own application using this library and load it into a Jailhouse cell.
 Before starting Jailhouse compilation, execute the following steps in order to produce the `.bin` files of the developed source:

@@ -27,3 +27,5 @@ Before starting Jailhouse compilation, execute the following steps in order to p
 - Develop your own inmate (e.g., `dma_transfer.c`) in `/jailhouse/demos/arm`
 - Add the name of your `.bin` (e.g., `dma_transfer.bin`) to the `INMATES` line of Makefile located in `/jailhouse/demos/arm64` 
 - In the Makefile located in `/jailhouse/demos/arm64`, add another line of the form `dma_transfer.y := ../arm/dma_transfer.o`
+
+Once this steps are completed, launch the compilation and extract the image to load onto the microSD.

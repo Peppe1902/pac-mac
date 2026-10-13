@@ -39,7 +39,7 @@
 
 #include <inmate.h>
 
-//i tipi u32 e u64 è definito in inmate.h
+//the two types u32 e u64 are defined in inmate.h
 //static u32 src[BUFFER_LENGTH] __attribute__((aligned(64)));
 //static u32 dst[BUFFER_LENGTH] __attribute__((aligned(64)));
 static u32 *src = (u32*) 0x50A00000;

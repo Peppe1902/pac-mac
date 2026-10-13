@@ -77,7 +77,7 @@ Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
-Add `Processor System Reset` and click Run Connection Automatico with the selected options:
+Add `Processor System Reset` and click **Run Connection Automation** with the selected options:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
 

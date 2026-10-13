@@ -95,7 +95,7 @@ Add another **AXI SmartConnect** to the block design and configure it with one s
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
 
-- Connect the PAC_MAC `M_AXI` port to the `S_AXI` port of the AXI SmartConnect.
+- Connect the PAC_MAC `M_AXI` port to the `S00_AXI` port of the AXI SmartConnect.
 - Connect the SmartConnect `M00_AXI` port to the `S_AXI_HP0_FPD` port of the PS block.
 - Connect the SmartConnect `M01_AXI` port to the `S01_AXI` port of the PAC_MAC IP.
 
@@ -103,9 +103,7 @@ At the end the complete design should be the following:
 
 <img width="800" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
-In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the
-`S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]`
-to the `S00_AXI` slave interface of PAC_MAC.
+In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the `S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]` to the `S00_AXI` slave interface of PAC_MAC.
 
 > [!NOTE]
 > Click **Assign All**, before doing the address assignment explained previously, if you see an interface labeled as **Unassign**.

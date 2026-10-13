@@ -95,7 +95,9 @@ Add AXI Smartconnect and configure its with one slave port and two master port:
 
 <img width="1167" height="687" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
 
-
+Connect PAC_MAC M_AXI to S_AXI port of the SmartCOnnect 
+Connect  SmartCOnnect  M00_AXI port to S_AXI_HP0_FPD port of PS block
+Connect  SmartCOnnect  M01_AXI port to S01_AXI port of PAC_MAC IP
 
 At the end the complete design should be the following:
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />

@@ -5,8 +5,8 @@
 /* Function to perform CLEAN, INVALIDATE and CLEAN+INVALIDATE operations on the data cache up to the point of coherency */
 void dcache_flush_range(void *addr, u64 size, int choice){
 
-        u64 ctr;
-        u64 dsize,dline,end;
+    u64 ctr;
+    u64 dsize,dline,end;
 
     //read the CTR_EL0 control register to obtain the data cache line length
  	asm volatile("mrs %[ctr], ctr_el0\n\t" : [ctr] "=r" (ctr));

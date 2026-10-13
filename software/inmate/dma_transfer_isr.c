@@ -205,12 +205,13 @@ static void gdma_interrupt_enable(unsigned int irqn){
 }
 
 
-/**Funzione per accendere il clock per l'FPD-DMA****/
+
+/**Function to enable FPD-DMA****/
 static void power_on_fpd_dma(void){
 
  	volatile u32* ptr = (volatile u32*)FPD_DMA_REF_CTRL_ADDR;	
 
-	*ptr |= (1U << 24); //CLKACT  = 1 (clock active for FPD-DMA)
+	*ptr |= (1U << 24); //CLKACT  = 1 (clock enabled for FPD-DMA)
 
 	printk("FPD_DMA_REF_CTRL : CLKACT = %u\n",*ptr);
 }

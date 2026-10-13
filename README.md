@@ -26,7 +26,8 @@ Before starting Jailhouse compilation, execute the following steps in order to p
 
 Once these steps are completed, launch the compilation and extract the image that must be loaded to the microSD.
 
-You may need to force copy the updated Jailhouse folder to your microSD card with the following command:
+> [!NOTE]
+> You may need to force copy the updated Jailhouse folder to your microSD card with the following command:
 
 ```bash
 sudo cp -r path/../jailhouse /media/user_name/RootFS
@@ -46,6 +47,9 @@ sudo jailhouse enable zynqmp-zcu104.cell
 ```bash
 sudo jailhouse enable zynqmp-zcu104-dma.cell
 ```
+
+> [!NOTE]
+> The `.cell` files will be generated after Jailhouse compilation.
 
 Load the desired `.bin` (e.g., `dma_transfer.bin`) into the non-root Jailhouse cell:
 

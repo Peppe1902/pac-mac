@@ -152,7 +152,7 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 }
 
 
-/**Function to start GDMA transfer**/
+/**Function to start FPD-DMA transfer**/
 static void gdma_start_transfer(void){
 
 	volatile u32 *ctrl2_ptr = (volatile u32*) GDMA_CH_CTRL2_ADDR;

@@ -59,7 +59,7 @@ void inmate_main(void){
 	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN);
 	
 	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,virt_to_phys((u64)dst,PHYS_BASE_ADDR),BUFFER_LENGTH);
-	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer da RAM alla pagina per l'FPGA
+	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer from RAM to FPGA page
 	gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,(u64)dst_ptr,BUFFER_LENGTH);
 	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,(u64)dst,BUFFER_LENGTH);
 	

@@ -169,7 +169,7 @@ static void handle_IRQ(unsigned int irqn){
 	
 	volatile u32 *isr_ptr = (volatile u32*) GDMA_CH_ISR_ADDR ;
 
-	*isr_ptr |= (1U << 10); //clear of value of interrupt writing 1 to bit 10 of ISR register (DMA_DONE)
+	*isr_ptr |= (1U << 10); // clear the interrupt by writing 1 to bit 10 of the ISR register (DMA_DONE)
 
 	if(irqn != FPD_DMA_IRQ){
 		return;

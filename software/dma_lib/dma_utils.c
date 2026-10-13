@@ -98,8 +98,8 @@ void gdma_config_simple_mode(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32
 	
 	//printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //ci deve essere 0x0483D20F come valore di default in decimale 75.747.855
 
-	DSB_ISH(); //dsb(ish) : Blocca l'esecuzione fino a che tutte le operazioni di memoria precedenti siano completate.
-	ISB();//isb : Svuota la pipeline del processore 
+	DSB_ISH(); //dsb(ish) : blocks execution until pending memory operations are completed
+	ISB();//isb : empy processor pipeline
 }
 
 

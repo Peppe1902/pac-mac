@@ -52,7 +52,8 @@ static inline u64 virt_to_phys(u64 virt_addr,u64 phys_base){
 	return virt_addr + phys_base;
 }
 
-/**Funzione per effettuare operazioni come CLEAN , INVALIDATE, CLEAN+INVALIDATE della cache dati fino al punto di coerenza***/
+
+/* Function to perform CLEAN, INVALIDATE and CLEAN+INVALIDATE operations on the data cache up to the point of coherency */
 static inline void dcache_flush_range(void *addr, u64 size, int choice){
 
     u64 ctr;

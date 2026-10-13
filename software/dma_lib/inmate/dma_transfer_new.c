@@ -29,7 +29,6 @@ static inline u64 virt_to_phys(u64 virt_addr,u64 phys_base){
 }
 
 
-/**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/
 void inmate_main(void){
 	
 	DSB_ISH(); 

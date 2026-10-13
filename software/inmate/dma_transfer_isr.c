@@ -267,10 +267,10 @@ void inmate_main(void){
 	DSB_ISH(); 
 	ISB();
 
-	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN); //se src parte dalla RAM usare questo !!!!
+	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN); //if src is located in RAM uncomment this line !!!!
 	
 	//gdma_config_simple_mode((u64)src,virt_to_phys((u64)dst,PHYS_BASE_ADDR),BUFFER_LENGTH);
-	//gdma_config_simple_mode(virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer da RAM alla pagina per l'FPGA
+	//gdma_config_simple_mode(virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer from RAM to FPGA page
 	gdma_config_simple_mode((u64)src,(u64)dst_ptr,BUFFER_LENGTH);
 
 	gdma_interrupt_enable(FPD_DMA_IRQ);
@@ -280,43 +280,8 @@ void inmate_main(void){
 	start_time = timer_get_ticks();
 
 	gdma_start_transfer();
-	
-	/*
-	if(gdma_poll_for_conversion() != -1){	
-	
-		//dcache_flush_range((void*)dst,BUFFER_LENGTH*4,DCACHE_INVALIDATE);
-
-		u64 end_time = timer_get_ticks();
-
-		u64 diff = timer_ticks_to_ns(end_time - start_time); //converto da tick in nanosecondi
-		
-		printk("Time required = %llu ns\n ",diff);
-
-		printk("------------DONE WITH NO ERROR-------------\n");
-		
-		
-		for(int i=0;i<BUFFER_LENGTH;i++){
-			printk("non-root cell : dst[%d] = %d\n",i,dst[i]);
-		}
-		
-
-	}else{
-		printk("------------DONE WITH ERROR-------------\n");
-	}
-	dst_ptr[4] = 1000;
-
-	printk("dst[4] = %d\n",dst[4]);
-	*/
 
 	halt();
 }
-
-
-/*
-DSB = Data Synchronization Barrier
-ish = Inner Shareable domain (cioè la barriera si applica all’interno del dominio di condivisione delle CPU, 
-tipicamente tutte le CPU e periferiche con accesso alla stessa memoria condivisa)
-*/
-
 
 

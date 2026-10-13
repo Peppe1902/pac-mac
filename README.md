@@ -65,6 +65,11 @@ sudo jailhouse cell start dma_cell
 
 ## Block Design
 
+Create a project for ZCU104 board:
+
+<img width="1355" height="870" alt="image" src="https://github.com/user-attachments/assets/ded9f50b-206f-4089-a459-536811139fd3" />
+
+Add Zynq UltraScale + MSPOC block and click Run Connection Automation
 
 Go to **Settings** and, in the IP section, add the repositories containing the custom IPs `PAC_MAC` and `ATL`.
 

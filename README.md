@@ -69,11 +69,13 @@ Create a project for ZCU104 board:
 
 <img width="1355" height="870" alt="image" src="https://github.com/user-attachments/assets/ded9f50b-206f-4089-a459-536811139fd3" />
 
-Add Zynq UltraScale + MSPOC block and click Run Connection Automation
-
 Go to **Settings** and, in the IP section, add the repositories containing the custom IPs `PAC_MAC` and `ATL`.
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
+
+Add Zynq UltraScale + MSPOC block and click Run Connection Automation
+
+<img width="847" height="851" alt="image" src="https://github.com/user-attachments/assets/e51c4c0e-5ed4-4d9d-8291-86f0ba47bbf0" />
 
 Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** to connect it to the other components of the design.
 

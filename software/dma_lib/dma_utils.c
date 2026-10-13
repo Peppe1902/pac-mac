@@ -16,7 +16,7 @@ void dcache_flush_range(void *addr, u64 size, int choice){
 	
 	dline = (u64)addr & ~(dsize-1); //round down: make the address divisible by dsize (clear the low bits)
 
-	end = (dline + size + dsize-1) & ~(dsize-1); //arrotondamento verso l'alto, soprattutto se end non è divisibile per dsize
+	end = (dline + size + dsize-1) & ~(dsize-1); //round up: useful when end is not divisible by dsize
 	
 	DSB_ISH();//dsb(ish)
 

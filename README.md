@@ -87,8 +87,14 @@ Add the ATL IP to the block design and use **Run Cponnection Automation** select
 
 <img width="1232" height="606" alt="image" src="https://github.com/user-attachments/assets/82c54269-15dc-420a-bd5a-6613f8ebb027" />
 
-Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** to connect it to the other components of the design.
+Add the `PAC_MAC` IP to the block design and use **Run Connection Automation**:
 
+<img width="1237" height="567" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
+
+Add 
+
+
+At the end the complete design should be the following:
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
 It might be necessary to configure the **AXI SmartConnect** present in the design

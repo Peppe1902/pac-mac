@@ -198,10 +198,3 @@ void power_on_fpd_dma(void){
 }
 
 
-/*
-DSB = Data Synchronization Barrier
-ish = Inner Shareable domain (cioè la barriera si applica all’interno del dominio di condivisione delle CPU, 
-tipicamente tutte le CPU e periferiche con accesso alla stessa memoria condivisa)
-*/
-
-

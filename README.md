@@ -73,7 +73,7 @@ Go to **Settings** and, in the IP section, add the repositories containing the c
 
 <img width="800" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
-Add `Zynq UltraScale + MPSoc` IP and click **Run Connection Automation**. The PS block must be configured as reported below:
+Add **Zynq UltraScale + MPSoc** IP and click **Run Connection Automation**. The PS block must be configured as reported below:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
@@ -83,11 +83,11 @@ Add the **Processor System Reset** IP and click **Run Connection Automation** wi
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/171ad06f-ed54-441e-9fc4-7123d8072079" />
 
-Add the `ATL` IP to the block design and use **Run Connection Automation** selecting only the first option:
+Add the **ATL** IP to the block design and use **Run Connection Automation** selecting only the first option:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/82c54269-15dc-420a-bd5a-6613f8ebb027" />
 
-Add the `PAC_MAC` IP to the block design and use **Run Connection Automation**:
+Add the **PAC_MAC** IP to the block design and use **Run Connection Automation**:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
 

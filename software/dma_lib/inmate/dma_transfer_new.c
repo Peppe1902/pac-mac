@@ -2,8 +2,7 @@
 #include <dma_utils.h>
 
 //#define BUFFER_LENGTH 1030 
-//#define BUFFER_LENGTH 65 
-#define BUFFER_LENGTH 65 //TERZO CASO DI TEST
+#define BUFFER_LENGTH 65
 #define PHYS_BASE_ADDR 0x50600000U
 #define GDMA_CH0_BASE_ADDR 0xFD500000
 

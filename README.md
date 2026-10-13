@@ -88,7 +88,7 @@ to build **Jailhouse** (e.g. patching the kernel) will have to be repeated.
 Relaunch the Petalinux build with the command:
 
 ```bash
-`petalinux-build`
+petalinux-build
 ```
 
 Extract the SD image and then connect the microSD to the board.

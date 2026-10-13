@@ -74,17 +74,16 @@ Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** t
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
-Generate the bitstream and extract the hardware design as a `.xsa` file. Modify the design in **Petalinux** with the command:
+Generate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:
 
 ```bash
-petalinux-config --get-hw-description
-=<path_to_xsa_file>
+petalinux-config --get-hw-description =<path_to_xsa_file>
 ```
 
 > [!IMPORTANT]
 > In some cases it may be necessary to clean the project first with `petalinux -x mrproper` before running the
 previous command. This restores the project to the state prior to the build, so the steps required
-to build Jailhouse (e.g. patching the kernel) will have to be repeated.
+to build **Jailhouse** (e.g. patching the kernel) will have to be repeated.
 
 Relaunch the Petalinux build with the command:
 

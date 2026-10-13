@@ -18,7 +18,8 @@ static u32 *dst_ptr = (u32*) 0x1050A20000;
 #include <dma_utils.h>
 
 
-/**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/
+/**FPD-DMA (FPD = Full Power Domain), which has 8 channels, is used (called GDMA). 
+Channel 0 is used**/
 void inmate_main(void){
 	
 	DSB_ISH(); 
@@ -26,7 +27,7 @@ void inmate_main(void){
 
 	map_range((void*)GDMA_CH0_BASE_ADDR,0x10000,MAP_UNCACHED);
 	map_range((void*)CRF_APB_BASE_ADDR,0x1000,MAP_UNCACHED);
-	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //commentarlo se src è in RAM
+	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //comment this line is src is located in RAM region
 	map_range((void*)dst,BUFFER_LENGTH*4,MAP_UNCACHED);
 	map_range((void*)dst_ptr,BUFFER_LENGTH*4,MAP_UNCACHED);
 

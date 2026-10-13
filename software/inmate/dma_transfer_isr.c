@@ -1,4 +1,3 @@
-
 /*---------------------------ADDRESSESS-----------------------------------*/
 #define GDMA_CH0_BASE_ADDR 		0xFD500000
 #define GDMA_CH_STATUS_ADDR  		(GDMA_CH0_BASE_ADDR + 0x0000011CU)

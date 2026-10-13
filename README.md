@@ -81,8 +81,7 @@ In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` t
 `S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]`
 to the `S00_AXI` slave interface.
 
-
-
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/4a7daf18-2e8f-4148-ad3f-514bd25977df" />
 
 
 Generate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:

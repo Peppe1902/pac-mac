@@ -15,7 +15,7 @@ The steps followed during the design are:
 Thanks to Jailhouse, the **FPD-DMA** is allocated to **DMA_CELL**, a bare-metal non-root cell:
 - FPD-DMA (full-power domain DMA) is one of the two DMA masters that can be found into PS-side of ZCU104.
 - The FPD-DMA is used to transfer data from the Processing System to the FPGA.
-- It can operate in different modes, in this project simple mode is used, which allows to transfer a contiguos block of elements.
+- It can operate in different modes, in this project **Simple Mode** is used, which allows to transfer a contiguos block of elements.
 
 The **CCI** is responsible for cache coherence management, but the FPD-DMA does not pass through it.
 

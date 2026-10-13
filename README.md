@@ -65,7 +65,7 @@ sudo jailhouse cell start dma_cell
 
 ## Block Design
 
-Create a project for ZCU104 board:
+Create a VIVADO project for ZCU104 MPSOC board:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/ded9f50b-206f-4089-a459-536811139fd3" />
 
@@ -73,17 +73,17 @@ Go to **Settings** and, in the IP section, add the repositories containing the c
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
-Add Zynq UltraScale + MSPOC block and click Run Connection Automation:
+Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
-Add Processor System Reset and click Run Connection Automatico with the selected options:
+Add `Processor System Reset` and click Run Connection Automatico with the selected options:
 
 <img width="1232" height="456" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
 
 <img width="1235" height="697" alt="image" src="https://github.com/user-attachments/assets/171ad06f-ed54-441e-9fc4-7123d8072079" />
 
-Add the ATL IP to the block design and use **Run Cponnection Automation** selecting only the first option:
+Add the `ATL` IP to the block design and use **Run Connection Automation** selecting only the first option:
 
 <img width="1232" height="606" alt="image" src="https://github.com/user-attachments/assets/82c54269-15dc-420a-bd5a-6613f8ebb027" />
 

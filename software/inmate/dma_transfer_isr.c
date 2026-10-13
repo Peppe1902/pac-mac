@@ -145,7 +145,7 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	*ptr = 4 * length; //dst transfer size
 
-	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; //caratteristiche delle transazioni AXI per letture e scritture di dati durante il trasferimento DMA.
+	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; // AXI transaction features for data read and write during DMA transfer.
 	
 	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //ci deve essere 0x0483D20F come valore di default in decimale 75.747.855
 

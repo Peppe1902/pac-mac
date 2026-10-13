@@ -114,7 +114,7 @@ void gdma_start_transfer(u64 GDMA_CH_BASE_ADDR){
 }
 
 
-/*Function to wait for the transfer to complete (polling) */
+/* Function to wait for the transfer to be completed (polling) */
 int gdma_poll_for_conversion(u64 GDMA_CH_BASE_ADDR){
 	
 	volatile u32 *status_ptr = (volatile u32* ) (GDMA_CH_BASE_ADDR + GDMA_CH_STATUS_OFFS);

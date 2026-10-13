@@ -13,13 +13,12 @@ static u32 *dst = (u32*) 0x50A20000;
 static u32 *dst_ptr = (u32*) 0x1050A20000; 
 
 
-/**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/
 void inmate_main(void){
 	
 	DSB_ISH(); 
 	ISB();
 
-	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //commentarlo se src è in RAM
+	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //comment this line if src is located in RAM
 	map_range((void*)dst,BUFFER_LENGTH*4,MAP_UNCACHED);
 	map_range((void*)dst_ptr,BUFFER_LENGTH*4,MAP_UNCACHED);
 

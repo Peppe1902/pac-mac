@@ -17,8 +17,6 @@ Thanks to Jailhouse, the FPD-DMA is allocated to `DMA_CELL`, a bare-metal non-ro
 
 The **CCI** is responsible for cache coherence management, but the FPD-DMA does not pass through it.
 
-<img width="1678" height="122" alt="image" src="https://github.com/user-attachments/assets/5762438c-faf2-4974-8e19-8d69876161de" />
-
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/dde75d36-0b0d-4e32-a7e2-6f13ba895ced" />
 
 **ATL** translates FPGA addresses to their corresponding memory addresses: 

@@ -104,7 +104,7 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	printk("GDMA_CH_STATUS (BEFORE WHILE) = %u\n",*ptr);
 
-	//attendo fino a che non si verifica che ZDMA_CH_STATUS[1:0] diventi 00 (done with no error) o diventi 11 (done with error)
+	//wait until ZDMA_CH_STATUS[1:0] becomes 00 (done, no error) or 11 (done with error)
 	while((*ptr & DONE_WITH_ERROR )!=DONE_WITH_ERROR  && (*ptr & DONE_WITH_ERROR )!=DONE_WITH_NO_ERROR);
 
 	printk("GDMA_CH_STATUS (AFTER WHILE) = %u\n",*ptr);
@@ -115,35 +115,35 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD0_ADDR;
 
-	*ptr = (u32) (src_addr & 0xFFFFFFFF); //parte bassa indirizzo src (lower 32-bit of address)
+	*ptr = (u32) (src_addr & 0xFFFFFFFF); //lower 32-bit of src address
 
 	printk("prima parte indirizzo src = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD1_ADDR;
 
-	*ptr = (u32) ((src_addr >> 32) & 0xFFF); //parte alta indirizzo src (upper 12-bits of src address), GDMA_CH_SRC_DSCR_WORD1_ADDR[31:17] are reserved for future use
+	*ptr = (u32) ((src_addr >> 32) & 0xFFF); //upper 12-bits of src address (N.B GDMA_CH_SRC_DSCR_WORD1_ADDR[31:17] are reserved for future use)
 
 	printk("seconda parte indirizzo src = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD0_ADDR;
 
-	*ptr = (u32) (dst_addr & 0xFFFFFFFF); //parte bassa indirizzo dst (lower 32-bit of address)
+	*ptr = (u32) (dst_addr & 0xFFFFFFFF); //lower 32-bit of dst address
 	
 	printk("prima parte indirizzo dst = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD1_ADDR;
 
-	*ptr = (u32) ((dst_addr >> 32) & 0xFFF); //parte alta indirizzo dst (upper 12 bits of dst address), GDMA_CH_DST_DSCR_WORD1_ADDR[31:17] are reserved for future use
+	*ptr = (u32) ((dst_addr >> 32) & 0xFFF); //upper 12 bits of dst address (N.B GDMA_CH_DST_DSCR_WORD1_ADDR[31:17] are reserved for future use)
 	
 	printk("seconda parte indirizzo dst = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD2_ADDR ;
 
-	*ptr = 4 * length; //src transfer size (in bytes nel nostro caso è 32)
+	*ptr = 4 * length; //src transfer size 
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD2_ADDR ;
 
-	*ptr = 4 * length; //dst transfer size (in bytes nel nostro caso è 32)
+	*ptr = 4 * length; //dst transfer size
 
 	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; //caratteristiche delle transazioni AXI per letture e scritture di dati durante il trasferimento DMA.
 	

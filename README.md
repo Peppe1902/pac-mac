@@ -67,6 +67,9 @@ sudo jailhouse cell start dma_cell
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
+Go to **Settings** and in the section IPs add the repository of the custom IP PAC_MAC. Adds the IP PAC_MAC in the
+design, using **Run Connection Automation** to connect the IP to the other components of the Design.
+
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
 

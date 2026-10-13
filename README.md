@@ -33,8 +33,7 @@ Once these steps are completed, launch the compilation and extract the image tha
 sudo cp -r path/../jailhouse /media/user_name/RootFS
 ```
 
-Then, on the board, enable Jailhouse by loading the kernel module `jailhouse.ko` located in /jailhouse/driver,
-and subsequently create:
+Then, on the board, enable Jailhouse by loading the kernel module `jailhouse.ko` located in `/jailhouse/driver`, and subsequently create:
 
 1) the root cell:
 

@@ -44,13 +44,13 @@ sudo jailhouse enable zynqmp-zcu104.cell
 2) the non-root cell with DMA support with the following command:
 
 ```bash
-sudo jailhouse enable zynqmp-zcu104-dma.cell.
+sudo jailhouse enable zynqmp-zcu104-dma.cell
 ```
 
 Load the desired `.bin` (e.g., `dma_transfer.bin`) into the non-root Jailhouse cell:
 
 ```bash
-sudo jailhouse cell load 1 dma_transfer.bin -s "con-type=JAILHOUSE" -a 0x1000.
+sudo jailhouse cell load 1 dma_transfer.bin -s "con-type=JAILHOUSE" -a 0x1000
 ```
 
 Then start the cell (e.g., `dma_cell`):

@@ -114,7 +114,7 @@ void gdma_start_transfer(u64 GDMA_CH_BASE_ADDR){
 }
 
 
-/**funzione per attendere (polling) che il trasferimento termini***/
+/*Function to wait for the transfer to complete (polling) */
 int gdma_poll_for_conversion(u64 GDMA_CH_BASE_ADDR){
 	
 	volatile u32 *status_ptr = (volatile u32* ) (GDMA_CH_BASE_ADDR + GDMA_CH_STATUS_OFFS);
@@ -136,7 +136,8 @@ int gdma_poll_for_conversion(u64 GDMA_CH_BASE_ADDR){
 	}
 }
 
-/*Funzione per avviare un certo numero di trasferimenti con il DMA verso l'FPGA***/
+
+/* Function to start a specific number of FPD-DMA transfers to the FPGA */
 void gdma_stress_test(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32 length,u32 ripetitions){
 
 	gdma_config_simple_mode(GDMA_CH_BASE_ADDR,src_addr,dst_addr,length);
@@ -156,7 +157,7 @@ void gdma_stress_test(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32 length
 
 		u64 end_time = timer_get_ticks();
 
-		u64 diff = timer_ticks_to_ns(end_time - start_time); //converto da tick in nanosecondi
+		u64 diff = timer_ticks_to_ns(end_time - start_time); //convert to ns
 	
 		printk("Time required = %llu ns\n ",diff);
 
@@ -169,7 +170,7 @@ void gdma_stress_test(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32 length
 
 }
 
-/**Funzione per fare length scritture a partire dall'indirizzo dst_addr***/
+/*Function to perform "length" writes starting from the "dst" address */
 void cpu_writes(u32 *dst,u32 length){
 
 	u64 start_time = timer_get_ticks();
@@ -187,12 +188,12 @@ void cpu_writes(u32 *dst,u32 length){
 }
 
 
-/**Funzione per accendere il clock per l'FPD-DMA****/
+/**Function to enable FPD-DMA****/
 void power_on_fpd_dma(void){
 
  	volatile u32* ptr = (volatile u32*)FPD_DMA_REF_CTRL_ADDR;	
 
-	*ptr |= (1U << 24); //CLKACT  = 1 (clock active for FPD-DMA)
+	*ptr |= (1U << 24); //CLKACT  = 1 (clock enabled for FPD-DMA)
 
 	printk("FPD_DMA_REF_CTRL : CLKACT = %u\n",*ptr);
 }

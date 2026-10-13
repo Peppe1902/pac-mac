@@ -115,7 +115,7 @@ to the `S00_AXI` slave interface of PAC_MAC.
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/4a7daf18-2e8f-4148-ad3f-514bd25977df" />
 
-Validate design aGenerate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:
+Validate the design and generate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:
 
 ```bash
 petalinux-config --get-hw-description=<path_to_xsa_file>

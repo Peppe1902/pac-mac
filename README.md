@@ -12,8 +12,10 @@ The steps followed during the design are:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/b7dc9571-5ca9-4723-a5ad-616f36c0c108" />
 
-Thanks to Jailhouse, the FPD-DMA is allocated to `DMA_CELL`, a bare-metal non-root cell.
+Thanks to Jailhouse, the **FPD-DMA** is allocated to **DMA_CELL**, a bare-metal non-root cell:
+- FPD-DMA (full-power domain DMA) is one of the two DMA masters that can be found into PS-side of ZCU104.
 - The FPD-DMA is used to transfer data from the Processing System to the FPGA.
+- It can operate in different modes, in this project simple mode is used, which allows to transfer a contiguos block of elements.
 
 The **CCI** is responsible for cache coherence management, but the FPD-DMA does not pass through it.
 
@@ -22,7 +24,6 @@ The **CCI** is responsible for cache coherence management, but the FPD-DMA does 
 **ATL** translates FPGA addresses to their corresponding memory addresses: 
 - ATL is mapped to addresses in range `[0x10_0000_0000,0x10_7FFF_FFFF]` and it simply ignores the two most significant digits of `AWADDR` and `ARADDR` signals
 - For the remaining signals it makes passthrough.
-
 
 **PAC_MAC** is the core of the design:
 Internally it is composed of two components :

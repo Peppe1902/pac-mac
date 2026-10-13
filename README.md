@@ -11,6 +11,15 @@ The steps followed during the design are:
 ## System Architecture
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/b7dc9571-5ca9-4723-a5ad-616f36c0c108" />
 
+**ATL** translates FPGA addresses to their corresponding memory addresses: 
+- ATL is mapped to addresses in range `[0x10_0000_0000,0x10_7FFF_FFFF]` and it simply ignores the two most significant digits of `AWADDR` and `ARADDR` signals
+- For the remaining signals it makes passthrough.
+
+
+**PAC_MAC** is the core of the design:
+Internally it is composed of two components :
+- **FILTER** — if the request is considered valid, this module addresses the DRAM; otherwise it addresses the SINK module (through the AXI SmartConnect).
+- **SINK** — addressed by the FILTER when the transaction is considered invalid. It responds with an AXI error (`SLVERR`).
 
 ## Jailhouse setup
 

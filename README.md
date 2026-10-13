@@ -77,7 +77,7 @@ Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** t
 Generate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:
 
 ```bash
-petalinux-config --get-hw-description =<path_to_xsa_file>
+petalinux-config --get-hw-description=<path_to_xsa_file>
 ```
 
 > [!IMPORTANT]

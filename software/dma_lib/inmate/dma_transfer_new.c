@@ -8,16 +8,16 @@
 #define PHYS_BASE_ADDR 0x50600000U
 #define GDMA_CH0_BASE_ADDR 0xFD500000
 
-//i tipi u32 e u64 è definito in inmate.h
+//the two types u32 e u64 are defined in inmate.h
 //static u32 src[BUFFER_LENGTH] __attribute__((aligned(64)));
 //static u32 dst[BUFFER_LENGTH] __attribute__((aligned(64)));
 static u32 *src = (u32*) 0x50A00000;
-//static u32 *dst = (u32*) 0x50AFF000; //PRIMO CASO DI TEST
-static u32 *dst = (u32*) 0x50AFFF00; //SECONDO CASO DI TEST
+//static u32 *dst = (u32*) 0x50AFF000; //FIRST TEST CASE
+static u32 *dst = (u32*) 0x50AFFF00; //SECOND TEST CASE
 //static u32 *dst = (u32*) 0x50B00000;
 //static u32 *dst_ptr = (u32*) 0x1050B00000;
-//static u32 *dst_ptr = (u32*) 0x1050AFF000; //PRIMO CASO DI TEST
-static u32 *dst_ptr = (u32*) 0x1050AFFF00; //SECONDO CASO DI TEST
+//static u32 *dst_ptr = (u32*) 0x1050AFF000; //FIRST TEST CASE
+static u32 *dst_ptr = (u32*) 0x1050AFFF00; //SECONDO TEST CASE
 
 static u32 *fpga1_ptr = (u32*) 0x1050A10000;
 static u32 *mem_ptr = (u32*) 0x50A10000;

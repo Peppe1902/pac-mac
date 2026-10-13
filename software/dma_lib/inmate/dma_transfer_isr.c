@@ -113,42 +113,42 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD0_ADDR;
 
-	*ptr = (u32) (src_addr & 0xFFFFFFFF); //parte bassa indirizzo src (lower 32-bit of address)
+	*ptr = (u32) (src_addr & 0xFFFFFFFF); //lower 32-bit of src address
 
 	printk("prima parte indirizzo src = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD1_ADDR;
 
-	*ptr = (u32) ((src_addr >> 32) & 0xFFF); //parte alta indirizzo src (upper 12-bits of src address), GDMA_CH_SRC_DSCR_WORD1_ADDR[31:17] are reserved for future use
+	*ptr = (u32) ((src_addr >> 32) & 0xFFF); //upper 12-bits of src address (N.B GDMA_CH_SRC_DSCR_WORD1_ADDR[31:17] are reserved for future use)
 
 	printk("seconda parte indirizzo src = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD0_ADDR;
 
-	*ptr = (u32) (dst_addr & 0xFFFFFFFF); //parte bassa indirizzo dst (lower 32-bit of address)
+	*ptr = (u32) (dst_addr & 0xFFFFFFFF); //lower 32-bit of dst address
 	
 	printk("prima parte indirizzo dst = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD1_ADDR;
 
-	*ptr = (u32) ((dst_addr >> 32) & 0xFFF); //parte alta indirizzo dst (upper 12 bits of dst address), GDMA_CH_DST_DSCR_WORD1_ADDR[31:17] are reserved for future use
+	*ptr = (u32) ((dst_addr >> 32) & 0xFFF); //upper 12 bits of dst address (N.B GDMA_CH_DST_DSCR_WORD1_ADDR[31:17] are reserved for future use)
 	
 	printk("seconda parte indirizzo dst = %u\n",*ptr);
 
 	ptr = (volatile u32*) GDMA_CH_SRC_DSCR_WORD2_ADDR ;
 
-	*ptr = 4 * length; //src transfer size (in bytes nel nostro caso è 32)
+	*ptr = 4 * length; //src transfer size
 
 	ptr = (volatile u32*) GDMA_CH_DST_DSCR_WORD2_ADDR ;
 
-	*ptr = 4 * length; //dst transfer size (in bytes nel nostro caso è 32)
+	*ptr = 4 * length; //dst transfer size
 
 	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; //caratteristiche delle transazioni AXI per letture e scritture di dati durante il trasferimento DMA.
 	
 	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //ci deve essere 0x0483D20F come valore di default in decimale 75.747.855
 
-	DSB_ISH(); //dsb(ish) : Blocca l'esecuzione fino a che tutte le operazioni di memoria precedenti siano completate.
-	ISB();//isb : Svuota la pipeline del processore 
+	DSB_ISH(); //dsb(ish) : blocks execution until pending memory operations are completed
+	ISB();//isb : empy processor pipeline
 }
 
 

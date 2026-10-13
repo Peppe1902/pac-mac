@@ -73,11 +73,11 @@ Go to **Settings** and, in the IP section, add the repositories containing the c
 
 <img width="800" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
-Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**. The PS block must be configured as follows:
+Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**. The PS block must be configured as reported below:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
-Add `Processor System Reset` IP and click **Run Connection Automation** with these selected options:
+Add the **Processor System Reset** IP and click **Run Connection Automation** with the following options selected:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
 

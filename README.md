@@ -101,7 +101,7 @@ Add another **AXI SmartConnect** to the block design and configure it with one s
 
 At the end the complete design should be the following:
 
-<img width="800" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
+<img width="1000" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
 In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the `S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]` to the `S00_AXI` slave interface of PAC_MAC.
 

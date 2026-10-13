@@ -67,11 +67,11 @@ sudo jailhouse cell start dma_cell
 
 Create a VIVADO project for ZCU104 MPSOC board:
 
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ded9f50b-206f-4089-a459-536811139fd3" />
+<img width="800" src="https://github.com/user-attachments/assets/ded9f50b-206f-4089-a459-536811139fd3" />
 
 Go to **Settings** and, in the IP section, add the repositories containing the custom IPs `PAC_MAC` and `ATL`.
 
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
+<img width="800" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
 Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**:
 
@@ -79,28 +79,29 @@ Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**:
 
 Add `Processor System Reset` and click Run Connection Automatico with the selected options:
 
-<img width="1232" height="456" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
 
-<img width="1235" height="697" alt="image" src="https://github.com/user-attachments/assets/171ad06f-ed54-441e-9fc4-7123d8072079" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/171ad06f-ed54-441e-9fc4-7123d8072079" />
 
 Add the `ATL` IP to the block design and use **Run Connection Automation** selecting only the first option:
 
-<img width="1232" height="606" alt="image" src="https://github.com/user-attachments/assets/82c54269-15dc-420a-bd5a-6613f8ebb027" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/82c54269-15dc-420a-bd5a-6613f8ebb027" />
 
 Add the `PAC_MAC` IP to the block design and use **Run Connection Automation**:
 
-<img width="1237" height="567" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
 
 Add AXI Smartconnect and configure its with one slave port and two master port:
 
-<img width="1167" height="687" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
 
 Connect PAC_MAC M_AXI to S_AXI port of the SmartCOnnect 
 Connect  SmartCOnnect  M00_AXI port to S_AXI_HP0_FPD port of PS block
 Connect  SmartCOnnect  M01_AXI port to S01_AXI port of PAC_MAC IP
 
 At the end the complete design should be the following:
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
+
+<img width="800" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
 It might be necessary to configure the **AXI SmartConnect** present in the design
 to manually connect the `M_AXI` interface of the PAC_MAC IP to the `S_AXI_HP0_FPD`

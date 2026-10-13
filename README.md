@@ -57,7 +57,7 @@ Load the desired `.bin` (e.g., `dma_transfer.bin`) into the non-root Jailhouse c
 sudo jailhouse cell load 1 dma_transfer.bin -s "con-type=JAILHOUSE" -a 0x1000
 ```
 
-Then start the cell (e.g., `dma_cell`):
+Then start the cell. The cell name is the one specified in the configuration file (e.g `dma_cell`):
 
 ```bash
 sudo jailhouse cell start dma_cell

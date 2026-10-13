@@ -216,30 +216,6 @@ static void power_on_fpd_dma(void){
 
 
 
-/**Funzione per attendere (polling) che il trasferimento termini/
-static int gdma_poll_for_conversion(void){
-	
-	volatile u32 *status_ptr = (volatile u32* ) GDMA_CH_STATUS_ADDR ;
-	
-	//printk("GDMA_CH_STATUS (BEFORE WHILE) = %u\n",*ptr);
-
-	while((*status_ptr & DONE_WITH_ERROR )!=DONE_WITH_ERROR  && (*status_ptr & DONE_WITH_ERROR )!=DONE_WITH_NO_ERROR);
-	
-	//printk("GDMA_CH_STATUS (AFTER WHILE) = %u\n",*ptr);
-
-	if((*status_ptr & DONE_WITH_ERROR) == DONE_WITH_NO_ERROR){
-		//printk("------------DONE WITH NO ERROR-------------\n");
-		//ptr = (volatile u32*) GDMA_CH_CTRL2_ADDR;
-		//printk("GDMA_CH_CTRL2 = %u\n",*ptr);
-		return 0;
-	}else{
-		//printk("------------DONE WITH ERROR----------\n");
-		return -1;
-	}
-}
-**/
-
-
 /**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/
 void inmate_main(void){
 	
@@ -275,48 +251,13 @@ void inmate_main(void){
 
 	gdma_interrupt_enable(FPD_DMA_IRQ);
 
-	//gdma_config_simple_mode((u64)src,(u64)dst,BUFFER_LENGTH);
-
 	start_time = timer_get_ticks();
 
 	gdma_start_transfer();
-	
-	/*
-	if(gdma_poll_for_conversion() != -1){	
-	
-		//dcache_flush_range((void*)dst,BUFFER_LENGTH*4,DCACHE_INVALIDATE);
-
-		u64 end_time = timer_get_ticks();
-
-		u64 diff = timer_ticks_to_ns(end_time - start_time); //converto da tick in nanosecondi
-		
-		printk("Time required = %llu ns\n ",diff);
-
-		printk("------------DONE WITH NO ERROR-------------\n");
-		
-		
-		for(int i=0;i<BUFFER_LENGTH;i++){
-			printk("non-root cell : dst[%d] = %d\n",i,dst[i]);
-		}
-		
-
-	}else{
-		printk("------------DONE WITH ERROR-------------\n");
-	}
-	dst_ptr[4] = 1000;
-
-	printk("dst[4] = %d\n",dst[4]);
-	*/
 
 	halt();
 }
 
-
-/*
-DSB = Data Synchronization Barrier
-ish = Inner Shareable domain (cioè la barriera si applica all’interno del dominio di condivisione delle CPU, 
-tipicamente tutte le CPU e periferiche con accesso alla stessa memoria condivisa)
-*/
 
 
 

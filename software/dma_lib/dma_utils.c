@@ -2,7 +2,7 @@
 #include <inmate.h>
 #include <dma_utils.h>
 
-/**Funzione per effettuare operazioni come CLEAN , INVALIDATE, CLEAN+INVALIDATE della D-CACHE fino al punto di coerenza***/
+/* Function to perform CLEAN, INVALIDATE and CLEAN+INVALIDATE operations on the data cache up to the point of coherency */
 void dcache_flush_range(void *addr, u64 size, int choice){
 
         u64 ctr;

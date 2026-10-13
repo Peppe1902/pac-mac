@@ -147,7 +147,7 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; // AXI transaction features for data read and write during DMA transfer.
 	
-	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //ci deve essere 0x0483D20F come valore di default in decimale 75.747.855
+	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //*ptr must be equal to 0x0483D20F (default value, in decimal : 75.747.855)
 
 	DSB_ISH(); //dsb(ish) : Blocca l'esecuzione fino a che tutte le operazioni di memoria precedenti siano completate.
 	ISB();//isb : Svuota la pipeline del processore 

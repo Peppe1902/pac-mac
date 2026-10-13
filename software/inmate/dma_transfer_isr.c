@@ -97,7 +97,7 @@ static inline void dcache_flush_range(void *addr, u64 size, int choice){
 
 
 
-/**Funzione per configurare un trasferimento di tipo simple mode con l'FPD-DMA (o GDMA) della ZCU104**/
+/**Function to configure a simple-mode transfer with FPD-DMA (called GDMA) on ZCU104**/
 static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){ 
 
 	volatile u32* ptr = (volatile u32* ) GDMA_CH_STATUS_ADDR ;

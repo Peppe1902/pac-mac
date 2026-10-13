@@ -1,4 +1,3 @@
-
 #include <inmate.h>
 #include <dma_utils.h>
 
@@ -7,16 +6,16 @@
 #define PHYS_BASE_ADDR 0x50600000U
 #define GDMA_CH0_BASE_ADDR 0xFD500000
 
-//i tipi u32 e u64 è definito in inmate.h
+//types u32 e u64 are defined in inmate.h 
 //static u32 src[BUFFER_LENGTH] __attribute__((aligned(64)));
 //static u32 dst[BUFFER_LENGTH] __attribute__((aligned(64)));
 static u32 *src = (u32*) 0x50A00000;
-//static u32 *dst = (u32*) 0x50AFF000; //PRIMO CASO DI TEST
-static u32 *dst = (u32*) 0x50AFFF00; //SECONDO CASO DI TEST
+//static u32 *dst = (u32*) 0x50AFF000; //FIRST TEST CASE
+static u32 *dst = (u32*) 0x50AFFF00; //SECOND TEST CASE
 //static u32 *dst = (u32*) 0x50B00000;
 //static u32 *dst_ptr = (u32*) 0x1050B00000;
-//static u32 *dst_ptr = (u32*) 0x1050AFF000; //PRIMO CASO DI TEST
-static u32 *dst_ptr = (u32*) 0x1050AFFF00; //SECONDO CASO DI TEST
+//static u32 *dst_ptr = (u32*) 0x1050AFF000; //FIRST TEST CASE
+static u32 *dst_ptr = (u32*) 0x1050AFFF00; //SECOND TEST CASE
 
 static u32 *fpga1_ptr = (u32*) 0x1050A10000;
 static u32 *mem_ptr = (u32*) 0x50A10000;
@@ -27,7 +26,7 @@ static inline u64 virt_to_phys(u64 virt_addr,u64 phys_base){
 }
 
 
-/**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/
+/**FPD-DMA is used (called GDMA). It has 8 channels and the first CH0 is used in this program (FPD = Full Power Domain)**/
 void inmate_main(void){
 	
 	DSB_ISH(); 
@@ -35,7 +34,7 @@ void inmate_main(void){
 
 	map_range((void*)GDMA_CH0_BASE_ADDR,0x10000,MAP_UNCACHED);
 	map_range((void*)CRF_APB_BASE_ADDR,0x1000,MAP_UNCACHED);
-	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //commentarlo se src è in RAM
+	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //comment this line if src is located in RAM
 	map_range((void*)dst,BUFFER_LENGTH*4,MAP_UNCACHED);
 	map_range((void*)dst_ptr,BUFFER_LENGTH*4,MAP_UNCACHED);
 	//map_range((void*)dst_ptr,0x200000,MAP_UNCACHED);
@@ -59,7 +58,7 @@ void inmate_main(void){
 	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN);
 	
 	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,virt_to_phys((u64)dst,PHYS_BASE_ADDR),BUFFER_LENGTH);
-	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer da RAM alla pagina per l'FPGA
+	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer from RAM to FPGA page
 	gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,(u64)dst_ptr,BUFFER_LENGTH);
 	//gdma_config_simple_mode(GDMA_CH0_BASE_ADDR,(u64)src,(u64)dst,BUFFER_LENGTH);
 	
@@ -77,7 +76,7 @@ void inmate_main(void){
 
 		u64 end_time = timer_get_ticks();
 
-		u64 diff = timer_ticks_to_ns(end_time - start_time); //converto da tick in nanosecondi
+		u64 diff = timer_ticks_to_ns(end_time - start_time); //convert from tick to ns
 		
 		printk("Time required = %llu ns\n ",diff);
 

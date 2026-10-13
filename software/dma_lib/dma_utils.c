@@ -53,7 +53,7 @@ void gdma_config_simple_mode(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32
 
 	printk("GDMA_CH_STATUS (BEFORE WHILE) = %u\n",*ptr);
 
-	//attendo fino a che non si verifica che ZDMA_CH_STATUS[1:0] diventi 00 (done with no error) o diventi 11 (done with error)
+	//wait until ZDMA_CH_STATUS[1:0] becomes 00 (done, no error) or 11 (done with error)
 	while((*ptr & DONE_WITH_ERROR )!=DONE_WITH_ERROR  && (*ptr & DONE_WITH_ERROR )!=DONE_WITH_NO_ERROR);
 
 	printk("GDMA_CH_STATUS (AFTER WHILE) = %u\n",*ptr);

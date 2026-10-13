@@ -65,9 +65,12 @@ sudo jailhouse cell start dma_cell
 
 ## Block Design
 
+
+Go to **Settings** and, in the IP section, add the repositories containing the custom IPs `PAC_MAC` and `ATL`.
+
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/258adab3-4caf-4131-a2a5-e1263031d3a3" />
 
-Go to **Settings** and, in the IP section, add the repository containing the custom IP `PAC_MAC`. Then add the `PAC_MAC` IP to the block design and use **Run Connection Automation** to connect it to the other components of the design.
+Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** to connect it to the other components of the design.
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 

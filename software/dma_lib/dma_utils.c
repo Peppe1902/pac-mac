@@ -103,12 +103,12 @@ void gdma_config_simple_mode(u64 GDMA_CH_BASE_ADDR,u64 src_addr,u64 dst_addr,u32
 }
 
 
-/**funzione per startare il transferimento con l'fpd-dma**/
+/**function to start FPD-DMA transfer**/
 void gdma_start_transfer(u64 GDMA_CH_BASE_ADDR){
 
 	volatile u32 *ctrl2_ptr = (volatile u32*) (GDMA_CH_BASE_ADDR + GDMA_CH_CTRL2_OFFS);
 	
-	*ctrl2_ptr |= (1U << 0); //abilitazione del trasferimento.
+	*ctrl2_ptr |= (1U << 0); //transfer enabled
 	
 	//printk("GDMA_CH_CTRL2 = %u\n",*ptr);
 }

@@ -51,21 +51,21 @@ static inline u64 virt_to_phys(u64 virt_addr,u64 phys_base){
 	return virt_addr + phys_base;
 }
 
-/**Funzione per effettuare operazioni come CLEAN , INVALIDATE, CLEAN+INVALIDATE della cache dati fino al punto di coerenza***/
+/* Function to perform CLEAN, INVALIDATE and CLEAN+INVALIDATE operations on the data cache up to the point of coherency */
 static inline void dcache_flush_range(void *addr, u64 size, int choice){
 
     u64 ctr;
     u64 dsize,dline,end;
-
-    //lettura registro di controllo ctr_el0 per determinare la lunghezza di una linea di cache dati
+	
+	//read the CTR_EL0 control register to obtain the data cache line length
  	asm volatile("mrs %[ctr], ctr_el0\n\t" : [ctr] "=r" (ctr));
 	
-	//dimensione della linea di cache dati in bytes, ottenuta dal campo DminLine[19:16] del registro di controllo
+	//data cache line size in bytes (computed from the DminLine[19:16] field of the control register)
 	dsize = 4 << ((ctr >> 16) & 0xf);
 	
-	dline = (u64)addr & ~(dsize-1);//arrotondamento verso il basso, rendo l'indirizzo divisibile per dsize (mettendo a 0, dsize-1 bits)
+	dline = (u64)addr & ~(dsize-1);  //round down: make the address divisible by dsize (clear the low bits)
 
-	end = (dline + size + dsize-1) & ~(dsize-1); //arrotondamento verso l'alto, soprattutto se end non è divisibile per dsize
+	end = (dline + size + dsize-1) & ~(dsize-1); //round up: useful when end is not divisible by dsize
 	
 	DSB_ISH();//dsb(ish)
 
@@ -95,14 +95,14 @@ static inline void dcache_flush_range(void *addr, u64 size, int choice){
 
 
 
-/**Funzione per configurare un trasferimento di tipo simple mode con l'FPD-DMA (o GDMA) della ZCU104**/
+/**Funzione to configure a simple-mode transfer with FPD-DMA (called GDMA) on ZCU104**/
 static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){ 
 
 	volatile u32* ptr = (volatile u32* ) GDMA_CH_STATUS_ADDR ;
 
 	printk("GDMA_CH_STATUS (BEFORE WHILE) = %u\n",*ptr);
 
-	//attendo fino a che non si verifica che ZDMA_CH_STATUS[1:0] diventi 00 (done with no error) o diventi 11 (done with error)
+	// wait until ZDMA_CH_STATUS[1:0] becomes 00 (done, no error) or 11 (done with error)
 	while((*ptr & DONE_WITH_ERROR )!=DONE_WITH_ERROR  && (*ptr & DONE_WITH_ERROR )!=DONE_WITH_NO_ERROR);
 
 	printk("GDMA_CH_STATUS (AFTER WHILE) = %u\n",*ptr);
@@ -143,9 +143,9 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 
 	*ptr = 4 * length; //dst transfer size
 
-	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; //caratteristiche delle transazioni AXI per letture e scritture di dati durante il trasferimento DMA.
+	ptr = (volatile u32*) GDMA_CH_DATA_ATTR_ADDR; // AXI transaction features for data read and write during DMA transfer.
 	
-	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //ci deve essere 0x0483D20F come valore di default in decimale 75.747.855
+	printk("GDMA_CH_DATA_ATTR = %u\n",*ptr); //*ptr must be equal to 0x0483D20F (default value, in decimal : 75.747.855)
 
 	DSB_ISH(); //dsb(ish) : blocks execution until pending memory operations are completed
 	ISB();//isb : empy processor pipeline

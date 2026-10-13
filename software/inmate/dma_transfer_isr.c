@@ -65,7 +65,7 @@ static inline void dcache_flush_range(void *addr, u64 size, int choice){
 	//data cache line size in bytes (computed from the DminLine[19:16] field of the control register)
 	dsize = 4 << ((ctr >> 16) & 0xf);
 	
-	dline = (u64)addr & ~(dsize-1);//arrotondamento verso il basso, rendo l'indirizzo divisibile per dsize (mettendo a 0, dsize-1 bits)
+	dline = (u64)addr & ~(dsize-1); //round down: make the address divisible by dsize (clear the low bits)
 
 	end = (dline + size + dsize-1) & ~(dsize-1); //arrotondamento verso l'alto, soprattutto se end non è divisibile per dsize
 	

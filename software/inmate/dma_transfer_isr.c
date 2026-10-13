@@ -59,7 +59,7 @@ static inline void dcache_flush_range(void *addr, u64 size, int choice){
     u64 ctr;
     u64 dsize,dline,end;
 
-        //lettura registro di controllo ctr_el0 per determinare la lunghezza di una linea di cache dati
+    //read the CTR_EL0 control register to obtain the data cache line length
  	asm volatile("mrs %[ctr], ctr_el0\n\t" : [ctr] "=r" (ctr));
 	
 	//dimensione della linea di cache dati in bytes, ottenuta dal campo DminLine[19:16] del registro di controllo

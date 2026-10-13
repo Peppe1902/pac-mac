@@ -1,4 +1,3 @@
-
 /*---------------------------ADDRESSESS-----------------------------------*/
 #define GDMA_CH0_BASE_ADDR 		0xFD500000
 #define GDMA_CH_STATUS_ADDR  		(GDMA_CH0_BASE_ADDR + 0x0000011CU)
@@ -243,10 +242,10 @@ void inmate_main(void){
 	DSB_ISH(); 
 	ISB();
 
-	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN); //se src parte dalla RAM usare questo !!!!
+	//dcache_flush_range((void*)src,BUFFER_LENGTH*4,DCACHE_CLEAN); //if src is located in RAM region uncomment this line !!!!
 	
 	//gdma_config_simple_mode((u64)src,virt_to_phys((u64)dst,PHYS_BASE_ADDR),BUFFER_LENGTH);
-	//gdma_config_simple_mode(virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer da RAM alla pagina per l'FPGA
+	//gdma_config_simple_mode(virt_to_phys((u64)src,PHYS_BASE_ADDR),(u64)dst_ptr,BUFFER_LENGTH);//transfer from RAM to FPGA page
 	gdma_config_simple_mode((u64)src,(u64)dst_ptr,BUFFER_LENGTH);
 
 	gdma_interrupt_enable(FPD_DMA_IRQ);

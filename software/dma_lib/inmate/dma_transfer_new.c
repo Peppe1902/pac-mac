@@ -1,4 +1,3 @@
-
 #include <inmate.h>
 #include <dma_utils.h>
 
@@ -36,7 +35,7 @@ void inmate_main(void){
 
 	map_range((void*)GDMA_CH0_BASE_ADDR,0x10000,MAP_UNCACHED);
 	map_range((void*)CRF_APB_BASE_ADDR,0x1000,MAP_UNCACHED);
-	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //commentarlo se src è in RAM
+	map_range((void*)src,BUFFER_LENGTH*4,MAP_UNCACHED); //comment this line is src is located in RAM region
 	map_range((void*)dst,BUFFER_LENGTH*4,MAP_UNCACHED);
 	map_range((void*)dst_ptr,BUFFER_LENGTH*4,MAP_UNCACHED);
 	//map_range((void*)dst_ptr,0x200000,MAP_UNCACHED);
@@ -78,7 +77,7 @@ void inmate_main(void){
 
 		u64 end_time = timer_get_ticks();
 
-		u64 diff = timer_ticks_to_ns(end_time - start_time); //converto da tick in nanosecondi
+		u64 diff = timer_ticks_to_ns(end_time - start_time); //convert to ns
 		
 		printk("Time required = %llu ns\n ",diff);
 
@@ -106,13 +105,6 @@ void inmate_main(void){
 	
 	halt();
 }
-
-
-/*
-DSB = Data Synchronization Barrier
-ish = Inner Shareable domain (cioè la barriera si applica all’interno del dominio di condivisione delle CPU, 
-tipicamente tutte le CPU e periferiche con accesso alla stessa memoria condivisa)
-*/
 
 
 

@@ -7,7 +7,7 @@ struct {
 	struct jailhouse_memory mem_regions[12];
 	struct jailhouse_irqchip irqchips[1];
 	struct jailhouse_pci_device pci_devices[1];
-	//union jailhouse_stream_id stream_ids[1]; //aggiunta
+	//union jailhouse_stream_id stream_ids[1]; 
 } __attribute__((packed)) config = {
 	.cell = {
 		.signature = JAILHOUSE_CELL_DESC_SIGNATURE,
@@ -21,7 +21,7 @@ struct {
 		.num_memory_regions = ARRAY_SIZE(config.mem_regions),
 		.num_irqchips = ARRAY_SIZE(config.irqchips),
 		.num_pci_devices = ARRAY_SIZE(config.pci_devices),
-		//.num_stream_ids = ARRAY_SIZE(config.stream_ids), //aggiunta
+		//.num_stream_ids = ARRAY_SIZE(config.stream_ids), 
 		.vpci_irq_base = 140-32,
 		.console = {
 			.address = 0xff000000,

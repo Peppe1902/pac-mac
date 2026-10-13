@@ -75,7 +75,7 @@ Go to **Settings** and, in the IP section, add the repositories containing the c
 
 Add `Zynq UltraScale + MPSoc` IP and click **Run Connection Automation**. The PS block must be configured as reported below:
 
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
 Add the **Processor System Reset** IP and click **Run Connection Automation** with the following options selected:
 
@@ -102,10 +102,6 @@ Add the **AXI SmartConnect** block to the block design and configure it with one
 At the end the complete design should be the following:
 
 <img width="800" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
-
-It might be necessary to configure the **AXI SmartConnect** present in the design
-to manually connect the `M_AXI` interface of the PAC_MAC IP to the `S_AXI_HP0_FPD`
-port of the Processing System and to the `S01_AXI` interface of PAC_MAC.
 
 In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the
 `S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]`

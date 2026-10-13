@@ -80,7 +80,7 @@ port of the Processing System and to the `S01_AXI` interface of PAC_MAC.
 
 In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the
 `S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]`
-to the `S00_AXI` slave interface.
+to the `S00_AXI` slave interface of PAC_MAC.
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/4a7daf18-2e8f-4148-ad3f-514bd25977df" />
 

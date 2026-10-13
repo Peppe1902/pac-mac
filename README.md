@@ -41,7 +41,7 @@ and subsequently create:
 sudo jailhouse enable zynqmp-zcu104.cell
 ```
 
-2) the non-root cell with DMA support with the following command:
+2) the non-root cell with DMA support:
 
 ```bash
 sudo jailhouse enable zynqmp-zcu104-dma.cell

@@ -77,7 +77,7 @@ Add `Zynq UltraScale + MSPOC` IP and click **Run Connection Automation**:
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/98ecbb3e-d273-4193-8060-065c2d2dd5a7" />
 
-Add `Processor System Reset` and click **Run Connection Automation** with these selected options:
+Add `Processor System Reset` IP and click **Run Connection Automation** with these selected options:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/d6e74c9c-5780-4dd0-803a-c801481ee03c" />
 
@@ -91,13 +91,13 @@ Add the `PAC_MAC` IP to the block design and use **Run Connection Automation**:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
 
-Add AXI Smartconnect and configure its with one slave port and two master port:
+Add the **AXI SmartConnect** block to the block design and configure it with one slave port and two master ports:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
 
-Connect PAC_MAC M_AXI to S_AXI port of the SmartCOnnect 
-Connect  SmartCOnnect  M00_AXI port to S_AXI_HP0_FPD port of PS block
-Connect  SmartCOnnect  M01_AXI port to S01_AXI port of PAC_MAC IP
+- Connect the PAC_MAC `M_AXI` port to the `S_AXI` port of the AXI SmartConnect.
+- Connect the SmartConnect `M00_AXI` port to the `S_AXI_HP0_FPD` port of the PS block.
+- Connect the SmartConnect `M01_AXI` port to the `S01_AXI` port of the PAC_MAC IP.
 
 At the end the complete design should be the following:
 

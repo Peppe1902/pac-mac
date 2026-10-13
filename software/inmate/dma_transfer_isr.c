@@ -154,12 +154,12 @@ static void gdma_config_simple_mode(u64 src_addr,u64  dst_addr,u32 length){
 }
 
 
-/**Funzione per startare il transferimento con l'fpd-dma**/
+/**Function to start FPD-DMA transfer**/
 static void gdma_start_transfer(void){
 
 	volatile u32 *ctrl2_ptr = (volatile u32*) GDMA_CH_CTRL2_ADDR;
 	
-	*ctrl2_ptr |= (1U << 0); //abilitazione del trasferimento.
+	*ctrl2_ptr |= (1U << 0); //transfer enabled
 	
 	//printk("GDMA_CH_CTRL2 = %u\n",*ptr);
 }
@@ -214,31 +214,6 @@ static void power_on_fpd_dma(void){
 
 	printk("FPD_DMA_REF_CTRL : CLKACT = %u\n",*ptr);
 }
-
-
-
-/**Funzione per attendere (polling) che il trasferimento termini/
-static int gdma_poll_for_conversion(void){
-	
-	volatile u32 *status_ptr = (volatile u32* ) GDMA_CH_STATUS_ADDR ;
-	
-	//printk("GDMA_CH_STATUS (BEFORE WHILE) = %u\n",*ptr);
-
-	while((*status_ptr & DONE_WITH_ERROR )!=DONE_WITH_ERROR  && (*status_ptr & DONE_WITH_ERROR )!=DONE_WITH_NO_ERROR);
-	
-	//printk("GDMA_CH_STATUS (AFTER WHILE) = %u\n",*ptr);
-
-	if((*status_ptr & DONE_WITH_ERROR) == DONE_WITH_NO_ERROR){
-		//printk("------------DONE WITH NO ERROR-------------\n");
-		//ptr = (volatile u32*) GDMA_CH_CTRL2_ADDR;
-		//printk("GDMA_CH_CTRL2 = %u\n",*ptr);
-		return 0;
-	}else{
-		//printk("------------DONE WITH ERROR----------\n");
-		return -1;
-	}
-}
-**/
 
 
 /**Usiamo FPD-DMA (indicato con GDMA che ha 8 canali noi useremo il primo CH0) -> (FPD = Full Power Domain)**/

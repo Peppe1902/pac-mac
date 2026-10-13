@@ -3,7 +3,7 @@
 The purpose of this project is to implement a fine-grained hardware control of memory accesses in inter-VM VirtIO-based communications, to improve the isolation
 between virtualization domains. The project will include a first prototype on ZCU104 (Zynq UltraScale + MPSOC).
 The steps followed during the design are:
-- Building the **Jailhouse** static partitioning hypervisor on the PS of the ZCU104.
+- Building the **Jailhouse** static partitioning hypervisor on the **Processing System** of the ZCU104.
 - Creation of bare metal non root cell, which will write or read on FPGA page via FPD-DMA.
 - FPGA Design in order to intercept and analyze the write/read requests.
 - Forwarding of the memory request to the DRAM if the request is valid, blocking it otherwise.

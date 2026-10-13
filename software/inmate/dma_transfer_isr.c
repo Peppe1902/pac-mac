@@ -91,8 +91,8 @@ static inline void dcache_flush_range(void *addr, u64 size, int choice){
 
 	}
 	
-	DSB_ISH();//dsb(ish)
-	ISB();//isb
+	DSB_ISH(); //dsb(ish) : blocks execution until pending memory operations are completed
+	ISB();//isb : empy processor pipeline
 }
 
 

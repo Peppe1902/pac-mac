@@ -74,6 +74,17 @@ Add the `PAC_MAC` IP to the block design and use **Run Connection Automation** t
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e12ef1cc-8951-4a06-9988-d58d7d376d30" />
 
+It might be necessary to configure the **AXI SmartConnect** present in the design
+to manually connect the `M_AXI` interface of the PAC_MAC IP to the `S_AXI_HP0_FPD`
+port of the Processing System and to the `S01_AXI` interface of PAC_MAC.
+In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` to the
+`S01_AXI` slave interface of PAC_MAC, and the range `[0x0000_0000, 0x7FFF_FFFF]`
+to the `S00_AXI` slave interface.
+
+
+
+
+
 Generate the bitstream and extract the hardware design as a `.xsa` file. Update the design in **Petalinux** with the following command:
 
 ```bash

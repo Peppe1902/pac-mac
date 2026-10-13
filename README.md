@@ -36,7 +36,7 @@ sudo cp -r path/../jailhouse /media/user_name/RootFS
 Then, on the board, enable Jailhouse by loading the kernel module `jailhouse.ko` located in /jailhouse/driver,
 and subsequently create:
 
-1) the root cell with the following command:
+1) the root cell:
 
 ```bash
 sudo jailhouse enable zynqmp-zcu104.cell

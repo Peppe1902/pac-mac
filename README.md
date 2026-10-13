@@ -91,7 +91,7 @@ Add the **PAC_MAC** IP to the block design and use **Run Connection Automation**
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/1bf36176-5ec5-47de-87db-7a9caa9033a2" />
 
-Add the **AXI SmartConnect** block to the block design and configure it with one slave port and two master ports:
+Add another **AXI SmartConnect** to the block design and configure it with one slave port and two master ports:
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/0b698e9b-b66d-4e23-9e42-a0315828699f" />
 

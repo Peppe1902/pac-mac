@@ -36,7 +36,7 @@ This guide assumes the following are already set up:
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/b7dc9571-5ca9-4723-a5ad-616f36c0c108" />
 
 Thanks to Jailhouse, the **FPD-DMA** is allocated to **DMA_CELL**, a bare-metal non-root cell:
-- FPD-DMA (full-power domain DMA) is one of the two DMA masters that can be found into PS-side of ZCU104.
+- **FPD-DMA** (full-power domain DMA) is one of the two DMA masters that can be found into PS-side of ZCU104.
 - The FPD-DMA is used to transfer data from the Processing System to the FPGA.
 - It can operate in different modes, in this project **Simple Mode** is used, which allows to transfer a contiguos block of elements.
 

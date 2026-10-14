@@ -15,6 +15,12 @@ The steps followed during the design are:
 - **RAM:** 8 GB
 - **Cores:** 6
 
+## Tools & Technologies
+
+- **HDL:** VHDL
+- **Synthesis & P&R:** Vivado 2024.2
+- **Embedded Linux build system:** PetaLinux
+- **Hypervisor:** Jailhouse
 
 
 ## System Architecture

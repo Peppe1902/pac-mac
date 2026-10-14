@@ -10,10 +10,18 @@ The steps followed during the design are:
 
 ## Setup
 
-- Ubuntu 18.04 virtual machine under VMware, where PetaLinux and Jailhouse will be installed
+- Ubuntu 18.04 virtual machine under VMware
 - **Free disk space:** 150 GB (200 GB preferable)
 - **RAM:** 8 GB
 - **Cores:** 6
+
+## Prerequisites
+
+This guide assumes the following are already set up:
+
+- PetaLinux 2024.2
+- Jailhouse installed on the ZCU104, following the [Minervasys documentation](https://github.com/Minervasys/jailhouse-documentation/blob/main/boards/zcu104/jailhouse.md)
+
 
 ## Tools & Technologies
 

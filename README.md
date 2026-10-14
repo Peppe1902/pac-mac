@@ -55,6 +55,11 @@ Internally it is composed of two components :
 
 ## Jailhouse setup
 
+> [!IMPORTANT]
+> Make sure Jailhouse has been installed and built by following the
+> [Minervasys documentation](https://github.com/Minervasys/jailhouse-documentation/blob/main/boards/zcu104/jailhouse.md)
+> before proceeding.
+
 - Copy the `software/dma_lib` folder into `/jailhouse/inmates/lib`.
 - Add `dma_utils.o` from `dma_lib` to the Makefile in `/jailhouse/inmates/lib/arm64`.
 - Add the command `-I/$(src)/lib/dma_lib/include` to the Makefile in `/jailhouse/inmate/`.

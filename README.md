@@ -10,8 +10,7 @@ The steps followed during the design are:
 
 ## Setup
 
-- PC host with **Ubuntu 18.04** (or an Ubuntu 18.04 virtual machine under VMware,
-  where PetaLinux and Jailhouse will be installed)
+- Ubuntu 18.04 virtual machine under VMware, where PetaLinux and Jailhouse will be installed
 - **Free disk space:** 150 GB (200 GB preferable)
 - **RAM:** 8 GB
 - **Cores:** 6

@@ -157,7 +157,7 @@ In the **Address Editor**, assign the range `[0x11_0000_0000, 0x11_7FFF_FFFF]` t
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/4a7daf18-2e8f-4148-ad3f-514bd25977df" />
 
 Validate the design and generate the bitstream and extract the hardware design as a `.xsa` file.  
-Copy the `.xsa` file to the Virtual machine with PetaLinux.
+Subsequently copy the `.xsa` file just generated to the virtual machine with PetaLinux.
 
 Update the design in **Petalinux** with the following command:
 

@@ -29,6 +29,7 @@ This guide assumes the following are already set up:
 - **Synthesis & P&R:** Vivado 2024.2
 - **Embedded Linux build system:** PetaLinux
 - **Hypervisor:** Jailhouse
+- **SD card partitioning:** GParted
 
 
 ## System Architecture

@@ -19,7 +19,7 @@ The steps followed during the design are:
 
 - **OS:** Ubuntu 18.04 (VMware virtual machine)
 - **Disk space:** 150 GB (200 GB recommended)
-- **RAM:** 8 GB
+- **RAM:** 8 GB minimum
 - **CPU:** 6 cores (8 cores recommended)
 
 ## Prerequisites

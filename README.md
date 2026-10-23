@@ -8,14 +8,22 @@ The steps followed during the design are:
 - FPGA Design in order to intercept and analyze the write/read requests.
 - Forwarding of the memory request to the DRAM if the request is valid, blocking it otherwise.
 
-## Setup
+### Hardware
 
-- Ubuntu 18.04 virtual machine under VMware
-- **Free disk space:** 150 GB (200 GB preferable)
-- **RAM:** 8 GB
-- **Cores:** 6
-- **microSD card:** at least 32 GB, used to boot the Linux image on the board
-  
+| Component | Description |
+|---|---|
+| Board | Xilinx Zynq UltraScale+ MPSoC ZCU104 |
+| Storage | microSD card, 32 GB or larger |
+
+### Development machine
+
+| Resource | Minimum |
+|---|---|
+| OS | Ubuntu 18.04 (VMware virtual machine) |
+| Disk space | 150 GB (200 GB recommended) |
+| RAM | 8 GB |
+| CPU | 6 cores |
+
 ## Prerequisites
 
 This guide assumes the following are already set up:

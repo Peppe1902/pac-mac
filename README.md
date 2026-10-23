@@ -20,8 +20,8 @@ The steps followed during the design are:
 
 This guide assumes the following are already set up:
 
-- PetaLinux installed on the virtual machine
-- Jailhouse already built and configured on the ZCU104, following the [Minervasys documentation](https://github.com/Minervasys/jailhouse-documentation/blob/main/boards/zcu104/jailhouse.md)
+- PetaLinux installed on the virtual machine.
+- Jailhouse already built and configured on the ZCU104, following the [Minervasys documentation](https://github.com/Minervasys/jailhouse-documentation/blob/main/boards/zcu104/jailhouse.md).
 
 ## Tools & Technologies
 

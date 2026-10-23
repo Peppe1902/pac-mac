@@ -8,21 +8,19 @@ The steps followed during the design are:
 - FPGA Design in order to intercept and analyze the write/read requests.
 - Forwarding of the memory request to the DRAM if the request is valid, blocking it otherwise.
 
+## Requirements
+
 ### Hardware
 
-| Component | Description |
-|---|---|
-| Board | Xilinx Zynq UltraScale+ MPSoC ZCU104 |
-| Storage | microSD card, 32 GB or larger |
+- **Board:** Xilinx Zynq UltraScale+ MPSoC ZCU104
+- **Storage:** microSD card, 32 GB or larger
 
 ### Development machine
 
-| Resource | Minimum |
-|---|---|
-| OS | Ubuntu 18.04 (VMware virtual machine) |
-| Disk space | 150 GB (200 GB recommended) |
-| RAM | 8 GB |
-| CPU | 6 cores |
+- **OS:** Ubuntu 18.04 (VMware virtual machine)
+- **Disk space:** 150 GB (200 GB recommended)
+- **RAM:** 8 GB
+- **CPU:** 6 cores
 
 ## Prerequisites
 

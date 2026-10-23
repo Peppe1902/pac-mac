@@ -14,7 +14,8 @@ The steps followed during the design are:
 - **Free disk space:** 150 GB (200 GB preferable)
 - **RAM:** 8 GB
 - **Cores:** 6
-
+- **microSD card:** at least 32 GB, used to boot the Linux image on the board
+  
 ## Prerequisites
 
 This guide assumes the following are already set up:
